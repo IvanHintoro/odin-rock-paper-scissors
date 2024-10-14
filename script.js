@@ -16,29 +16,48 @@ function getHumanChoice() {
     return (playerChoice.toLowerCase());
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
 
-function playRound(humanChoice, computerChoice) {
-    console.log(`You pick ${humanChoice}`);
-    console.log(`Computer used ${computerChoice}`);
-
-    if (humanChoice == computerChoice){
-        console.log("It's a draw");
+    function playRound(humanChoice, computerChoice) {
+        console.log(`You pick ${humanChoice}`);
+        console.log(`Computer used ${computerChoice}`);
+    
+        if (humanChoice == computerChoice){
+            console.log("It's a draw");
+        }
+        else if (
+            (humanChoice == "rock" && computerChoice == "scissors") ||
+            (humanChoice == "paper" && computerChoice == "rock") ||
+            (humanChoice == "scissors" && computerChoice == "paper")
+        ) {
+            console.log("Congratulations! You win")
+            humanScore = humanScore + 1;
+        }
+        else {
+            console.log("Unfortunately, you lose")
+            computerScore = computerScore + 1;
+        }
     }
-    else if (
-        (humanChoice == "rock" && computerChoice == "scissors") ||
-        (humanChoice == "paper" && computerChoice == "rock") ||
-        (humanChoice == "scissors" && computerChoice == "paper")
-    ) {
-        console.log("Congratulations! You win")
+
+    for (let i = 1; i <= 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection)
+    }
+
+    console.log(`Your score = ${humanScore}`);
+    console.log(`Computer score = ${computerScore}`);
+    if (humanScore == computerScore){
+        console.log("It's a draw, good game!")
+    }
+    else if (humanScore > computerScore){
+        console.log("Congratulations! You win the game")
     }
     else {
-        console.log("Unfortunately, you lose")
+        console.log("You lose, better luck next time")
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-playRound(humanSelection, computerSelection);
+playGame();
