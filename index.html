@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
-    
+    <div class="top-container">
+        <div id="scoreBoard" class="score">
+            Current Score:
+            <br>
+            0 Win(s) 0 Loss
+        </div>
+        <div class="title">
+            Rock, Paper, Scissors!
+        </div>
+        <div class="top-blank"></div>
+    </div>
+
+    <div class="middle-container">
+        Your Choice
+        <div class="btn-group">
+            <button id="rock">ROCK</button>
+            <button id="paper">PAPER</button>
+            <button id="scissors">SCISSORS</button>
+        </div>
+
+        Computer Choice
+        <div class="btn-group">
+            <button id="rockComputer" disabled>ROCK</button>
+            <button id="paperComputer" disabled>PAPER</button>
+            <button id="scissorsComputer" disabled>SCISSORS</button>
+        </div>
+    </div>
+
+    <div id="result" class="bottom-container"></div>
+
 </body>
 </html>
